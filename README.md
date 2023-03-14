@@ -4,8 +4,11 @@
 ## Highlights of this project:
 
 🚀Provisioned an AKS cluster using Azure portal or Azure CLI, enabling deployment and management of containerized applications in a highly available and scalable environment.
+
 🚀Deployed an Nginx deployment in a test namespace of the AKS cluster, allowing testing of containerized applications and validating cluster functionality.
+
 🚀Created an Azure blob storage account and container named "akslogs" to store application logs securely and reliably, facilitating log analysis and troubleshooting.
+
 🚀Configured Vector, a high-performance log collector, to access the Azure blob storage container and stream application logs using a configuration file called "vector-config.yaml", ensuring proper storage and analysis of logs.
 
 ![01](https://user-images.githubusercontent.com/113555417/224894937-10147d85-0695-406f-8331-5f95b9679f6d.jpg)
@@ -25,7 +28,8 @@ az aks create -g MyResourceGroup -n myAKSCluster  --node-count 1 --generate-ssh-
 
 
 # Step 3: Create Azure blob storage to store the logs
-  ##commands
+  ## commands
+  
 az storage account create \
     --name storageromesh2002 \
     --resource-group MyResourceGroup \
@@ -37,20 +41,25 @@ az storage container create \
     --account-name storageromesh2002 \
     --name akslogs \
     
+    
     ![Screenshot 2023-03-11 161717](https://user-images.githubusercontent.com/113555417/224895768-8136ce37-603c-4748-936b-9e0327453da6.jpg)
     
     ![Screenshot 2023-03-11 161953](https://user-images.githubusercontent.com/113555417/224895797-935f7716-de7b-4908-86b6-044fa72adab9.jpg)
+    
     ![Screenshot 2023-03-11 162434](https://user-images.githubusercontent.com/113555417/224895881-766488a5-f7d1-41ac-be15-736b7aaf36ba.jpg)
 
 # Step4: Storage Account Connection String
 
-
     ![Screenshot 2023-03-11 163527](https://user-images.githubusercontent.com/113555417/224896011-99fde64a-7add-422c-9205-98fce046b217.jpg)
 
 # Step 5: Prepare vector-config.yaml
+
     ![Screenshot 2023-03-11 163752](https://user-images.githubusercontent.com/113555417/224896162-44de2f23-c1c1-43a0-9439-05c6d8539d3b.jpg)
+    
 # Step 6: Install Vector using Helm
   # command to install the vector
+  
+  
 helm repo add vector https://helm.vector.dev
 helm repo update
 helm upgrade --install vector vector/vector -f vector-config.yaml -n test-ns --version 0.17.1
