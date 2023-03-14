@@ -1,0 +1,10 @@
+az storage account create \
+    --name storageromesh2002 \
+    --resource-group MyResourceGroup \
+    --location centralindia \
+    --sku Standard_ZRS \
+    --encryption-services blob
+
+az storage container create \
+    --account-name storageromesh2002 \
+    --name akslogs \
