@@ -1,0 +1,2 @@
+az group create --name piyushRG --location eastus
+az aks create -g piyushRG -n myAKSCluster  --node-count 1 --generate-ssh-keys
