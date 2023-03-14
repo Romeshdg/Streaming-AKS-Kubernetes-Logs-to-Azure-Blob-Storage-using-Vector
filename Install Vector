@@ -1,0 +1,3 @@
+helm repo add vector https://helm.vector.dev
+helm repo update
+helm upgrade --install vector vector/vector -f vector-config.yaml -n test-ns --version 0.17.1
