@@ -14,13 +14,13 @@
 ![01](https://user-images.githubusercontent.com/113555417/224894937-10147d85-0695-406f-8331-5f95b9679f6d.jpg)
 ![bash](https://user-images.githubusercontent.com/113555417/224894946-ccc2046e-924e-4265-aa42-9ed7121c6aeb.jpg)
 
-
-# Azure CLI commands
-
---bash
+ 
+Azure CLI commands
+```bash
 az group create --name MyResourceGroup --location centralindia
 az aks create -g MyResourceGroup -n myAKSCluster  --node-count 1 --generate-ssh-keys
---
+```
+Images:
 
 ![Screenshot 2023-03-11 160601](https://user-images.githubusercontent.com/113555417/224895148-57c8c3d7-6981-4a09-9281-8b14c3131f93.jpg)
 
@@ -33,45 +33,49 @@ az aks create -g MyResourceGroup -n myAKSCluster  --node-count 1 --generate-ssh-
 
 
 ## Step 3: Create Azure blob storage to store the logs
-  #commands
-  --bash
+ commands
+ ```bash
 az storage account create \
     --name storageromesh2002 \
     --resource-group MyResourceGroup \
     --location centralindia \
     --sku Standard_ZRS \
     --encryption-services blob
-
+  ````
+  
+  ````bash
 az storage container create \
     --account-name storageromesh2002 \
     --name akslogs \
-   --
+   ````
     
-    ![Screenshot 2023-03-11 161717](https://user-images.githubusercontent.com/113555417/224895768-8136ce37-603c-4748-936b-9e0327453da6.jpg)
+![Screenshot 2023-03-11 161717](https://user-images.githubusercontent.com/113555417/224895768-8136ce37-603c-4748-936b-9e0327453da6.jpg)
     
-    ![Screenshot 2023-03-11 161953](https://user-images.githubusercontent.com/113555417/224895797-935f7716-de7b-4908-86b6-044fa72adab9.jpg)
+![Screenshot 2023-03-11 161953](https://user-images.githubusercontent.com/113555417/224895797-935f7716-de7b-4908-86b6-044fa72adab9.jpg)
     
-    ![Screenshot 2023-03-11 162434](https://user-images.githubusercontent.com/113555417/224895881-766488a5-f7d1-41ac-be15-736b7aaf36ba.jpg)
+![Screenshot 2023-03-11 162434](https://user-images.githubusercontent.com/113555417/224895881-766488a5-f7d1-41ac-be15-736b7aaf36ba.jpg)
 
 ## Step4: Storage Account Connection String
 
-
-    ![Screenshot 2023-03-11 163527](https://user-images.githubusercontent.com/113555417/224896011-99fde64a-7add-422c-9205-98fce046b217.jpg)
+  overview:
+  
+![Screenshot 2023-03-11 163527](https://user-images.githubusercontent.com/113555417/224896011-99fde64a-7add-422c-9205-98fce046b217.jpg)
 
 
 ## Step 5: Prepare vector-config.yaml
 
   
-  ![Screenshot 2023-03-11 163752](https://user-images.githubusercontent.com/113555417/224896162-44de2f23-c1c1-43a0-9439-05c6d8539d3b.jpg)
+![Screenshot 2023-03-11 163752](https://user-images.githubusercontent.com/113555417/224896162-44de2f23-c1c1-43a0-9439-05c6d8539d3b.jpg)
     
 ## Step 6: Install Vector using Helm
-  # command to install the vector
+
+command to install the vector
   
---bash  
+```bash  
 helm repo add vector https://helm.vector.dev
 helm repo update
 helm upgrade --install vector vector/vector -f vector-config.yaml -n test-ns --version 0.17.1
---
+```
 
 ![vector](https://user-images.githubusercontent.com/113555417/224896377-9d7b8a4f-c257-43a3-b412-243219930c0b.jpg)
 
@@ -86,9 +90,9 @@ After a few minutes see the logs streaming to the “akslogs” container in you
 
 ![Screenshot 2023-03-11 165617](https://user-images.githubusercontent.com/113555417/224896847-44b1dd88-2fa5-4095-b7c4-1dee854cf573.jpg)
 
-Overall, this project can help organizations effectively manage and leverage their AKS logs for various use cases, such as troubleshooting, performance optimization, security, compliance, and business intelligence.
+# Overall, this project can help organizations effectively manage and leverage their AKS logs for various use cases, such as troubleshooting, performance optimization, security, compliance, and business intelligence.
 
 
-Thank you!
+## Thank you!
 
 
